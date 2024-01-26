@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<head>
+    <title>Calcolo Voti Classe</title>
+    <script>
+        // Array di voti iniziale
+        var voti = [18, 20, 16, 19, 17, 15, 14, 18, 20, 19, 16, 17, 18, 15, 16, 19];
+
+        // Funzione per calcolare il voto medio
+        function calcolaMedia() {
+            var somma = 0;
+            for (var i = 0; i < voti.length; i++) {
+                somma += voti[i];
+            }
+            return somma / voti.length;
+        }
+
+        // Funzione per calcolare il voto minimo
+        function calcolaMinimo() {
+            return Math.min(...voti);
+        }
+
+        // Funzione per calcolare il voto massimo
+        function calcolaMassimo() {
+            return Math.max(...voti);
+        }
+
+        // Funzione per aggiungere nuovi voti
+        function aggiungiVoti() {
+            var nuovoVoto1 = parseInt(prompt("Inserisci il primo nuovo voto:"));
+            var nuovoVoto2 = parseInt(prompt("Inserisci il secondo nuovo voto:"));
+
+            voti.push(nuovoVoto1, nuovoVoto2);
+
+            // Aggiorna i risultati
+            document.getElementById("media").innerHTML = calcolaMedia();
+            document.getElementById("minimo").innerHTML = calcolaMinimo();
+            document.getElementById("massimo").innerHTML = calcolaMassimo();
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcolo Voti Classe</h1>
+    <p>Voti: <span id="voti">[18, 20, 16, 19, 17, 15, 14, 18, 20, 19, 16, 17, 18, 15, 16, 19]</span></p>
+    <p>Media: <span id="media"></span></p>
+    <p>Minimo: <span id="minimo"></span></p>
+    <p>Massimo: <span id="massimo"></span></p>
+    <button onclick="aggiungiVoti()">Aggiungi voti</button>
+
+    <script>
+        // Inizializza i risultati
+        document.getElementById("media").innerHTML = calcolaMedia();
+        document.getElementById("minimo").innerHTML = calcolaMinimo();
+        document.getElementById("massimo").innerHTML = calcolaMassimo();
+    </script>
+</body>
+</html>
